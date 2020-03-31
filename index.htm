@@ -12,34 +12,17 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
       class App extends React.Component {
-        state = {
-          string: '',
-          result: '',
-        }
+        state = {string: '',result: ''}
 
         handleChange = e => {
-          if (e.target.value == '') {
-            this.setState({
-              result: ''
-            })
-          }
-          this.setState({
-            string: e.target.value
-          })
+          if (e.target.value == '') {this.setState({ result: '' })}
+          this.setState({ string: e.target.value })
         }
 
         revStr = () => {
           let reversestr = this.state.string.split('').reverse().join('');
-          if (this.state.string == reversestr) {
-            this.setState({
-              result: 'Palindrome Found'
-            })
-          }
-          else {
-            this.setState({
-              result: 'Not a Palindrome'
-            })
-          }
+          if (this.state.string == reversestr) { this.setState({ result: 'Palindrome Found' })}
+          else {this.setState({ result: 'Not a Palindrome' })}
         }
 
         render() {
@@ -50,17 +33,11 @@
               <h2 className="text-white text-center pt-5">Palindrome Checker</h2>
               <div className="mt-5 w-25 mx-auto">
                 <div className="form-group">
-                  <input type="text"
-                    className="form-control"
-                    placeholder="Enter any string"
-                    value={string}
-                    onChange={this.handleChange} />
+                  <input type="text" className="form-control" placeholder="Enter any string" value={string} onChange={this.handleChange} />
                 </div>
                 <button onClick={() => setTimeout(this.revStr, 1000)} className="btn btn-outline-primary btn-block">Submit</button>
                 <div className={`mt-3 text-center text-uppercase ${resultClass}`}>{result}</div>
-
               </div>
-
             </div>
           );
         }
