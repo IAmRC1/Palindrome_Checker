@@ -21,6 +21,11 @@
         }
 
         handleChange = e => {
+        if(e.target.value == ''){
+          this.setState({
+            result: ''
+          })
+        }
           this.setState({
             string: e.target.value
           })
